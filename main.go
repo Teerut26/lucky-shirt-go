@@ -1,7 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"os"
+
+	"github.com/line/line-bot-sdk-go/v8/linebot/messaging_api"
+)
 
 func main() {
-	fmt.Println("Hello, World!")
+	bot, err := messaging_api.NewMessagingApiAPI(
+		os.Getenv("LINE_CHANNEL_TOKEN"),
+	)
+
+	if err != nil {
+		panic(err)
+	}
+
 }
